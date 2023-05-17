@@ -22,14 +22,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import java.util.Dictionary
+import androidx.navigation.NavHostController
 
 @Composable
-fun Authorize(login: MutableState<String>, password: MutableState<String>, Edit:MutableState<String>){
+fun Authorize(
+    login: MutableState<String>,
+    password: MutableState<String>,
+    Edit: MutableState<String>,
+    navController: NavHostController
+){
     val sing_in={
-        /*Todo*/
+        navController.navigate("head")
     }
     val sing_up={
         /*Todo*/
@@ -46,12 +50,12 @@ fun Authorize(login: MutableState<String>, password: MutableState<String>, Edit:
 fun New_post(){
     Column(Modifier.fillMaxSize()){
         Button(modifier = Modifier
-            .background(Color.Unspecified)
+            .background(Color.Black)
             .padding(20.dp)
-            .fillMaxSize(), onClick = { /*TODO*/ }) {Text(text="Ready to publish your idea?!?")}
+            .fillMaxSize(), onClick = { /*TODO*/ }) {Text(text="Ready to publish your idea?!?",color=Color.White)}
 }
 
-    }
+}
 
 @Composable
 fun icons(icn: ImageVector, onClick: () -> Unit, modifier: Modifier = Modifier) {
@@ -68,15 +72,15 @@ fun icons(icn: ImageVector, onClick: () -> Unit, modifier: Modifier = Modifier) 
 }
 
 @Composable
-fun menu_func(){
+fun menu_func(navController: NavHostController) {
     val ancient_themki={
-        /*Todo*/
+        navController.navigate("stock")
     }
     val profile={
-        /*Todo*/
+        navController.navigate("profile")
     }
     val likes={
-        /*Todo*/
+        navController.navigate("match")
     }
 
     val SM={
