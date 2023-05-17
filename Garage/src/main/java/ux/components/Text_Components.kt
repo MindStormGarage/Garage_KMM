@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -42,6 +43,10 @@ fun surface_label(padding:Modifier,txt:String) {
     ) {
         Text(txt, modifier = padding)
     }
+}
+@Composable
+fun Search(Primary_Text: MutableState<String>, mod:Modifier){
+    TextField(value = Primary_Text.value, modifier = mod, label = { Text(text = "Search", textAlign = TextAlign.Center)}, onValueChange ={ input->Primary_Text.value=input} )
 }
 
 @Composable

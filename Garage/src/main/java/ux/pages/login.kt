@@ -26,7 +26,7 @@ fun Auth_func(){
     Column(
         Modifier
             .fillMaxSize()
-            .background(Color.Yellow)) {
+            .background(Color.LightGray)) {
         val login= remember{
             mutableStateOf("")}
         val password= remember {
@@ -52,3 +52,4 @@ fun Auth_func(){
 
     }
 }
+
