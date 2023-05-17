@@ -42,7 +42,7 @@ dependencies {
     implementation(project(":shared"))
     implementation ("androidx.compose.material:material-icons-extended:1.4.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation("androidx.compose.ui:ui:1.4.0")
+    implementation("androidx.compose.ui:ui:1.4.3")
     implementation("androidx.compose.ui:ui-tooling:1.4.0")
     implementation("androidx.compose.ui:ui-tooling-preview:1.4.0")
     implementation("androidx.compose.foundation:foundation:1.4.0")
