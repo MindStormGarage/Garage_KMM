@@ -1,6 +1,7 @@
 package ux.pages
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -30,13 +31,18 @@ fun auth_screen(navController: NavHostController) {
     }
 
 
-    Column(Modifier.fillMaxSize().background(Color.LightGray)) {
-        surface_label(padding = Modifier.padding(8.dp).align(Alignment.CenterHorizontally), txt =Txt.value)
-        Separator()
-        field_input(login,"Login","example@mail.uk")
-        Separator()
-        Pass(password)
-        Authorize(login = login, password = password , Edit =Txt, navController)
-    }
+    Column(
+        Modifier
+            .fillMaxSize()
+            .background(Color.LightGray)) {
+        surface_label(padding = Modifier
+            .padding(8.dp)
+            .align(Alignment.CenterHorizontally), txt =Txt.value)
+        Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
+            field_input(login,"Login","example@mail.uk")
+            Pass(password)
+            Authorize(login = login, password = password , Edit =Txt, navController)
+        }
+        }
 }
 
