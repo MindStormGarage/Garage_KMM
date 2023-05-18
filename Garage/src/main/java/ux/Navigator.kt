@@ -10,6 +10,8 @@ import ux.pages.head_screen
 import ux.pages.match_screen
 import ux.pages.profile_screen
 import ux.pages.stock_screen
+import ux.samples.PostCreation
+import ux.samples.PostRead
 
 @Composable
 fun AppNavigation(navController: NavHostController) {
@@ -20,6 +22,8 @@ fun AppNavigation(navController: NavHostController) {
         composable("match") { match_screen(navController) }
         composable("profile"){ profile_screen(navController) }
         composable("stock") { stock_screen(navController) }
+        composable("readpost") { PostRead(navController) }
+        composable("newpost") { PostCreation(navController) }
     }
 }
 

@@ -74,3 +74,7 @@ fun Pass(password: MutableState<String>) {
             }
         })
 }
+@Composable
+fun Textfield_Def(Primary_Text: MutableState<String>,tex:String){
+    TextField(value = Primary_Text.value, label = { Text(text = tex, textAlign = TextAlign.Center)}, onValueChange ={ input->Primary_Text.value=input} )
+}

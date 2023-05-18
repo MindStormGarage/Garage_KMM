@@ -27,7 +27,7 @@ fun stock_elements() {
         contentAlignment = Alignment.Center
     ) {
         val Projects =
-            listOf("Пока здесь ничего нет!")
+            listOf("WebFitness","Microsoft","Amazon","Mozila","Otus","Apple","WebFitness","Microsoft","Amazon","Mozila","Otus","Apple","WebFitness","Microsoft","Amazon","Mozila","Otus","Apple")
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier

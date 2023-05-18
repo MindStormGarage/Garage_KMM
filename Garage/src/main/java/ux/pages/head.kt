@@ -23,18 +23,20 @@ fun head_screen(navController: NavHostController) {
     val menuWidth = if (menuOpenState.value) 1f else 0f
 
     Column(
-        Modifier.background(Color.Gray).fillMaxSize()) {
+        Modifier
+            .background(Color.Gray)
+            .fillMaxSize()) {
         headbar(search_text,searchOpenState,menuOpenState)
         if (menuOpenState.value) {
             Menubar(menuWidth,navController)
         }
         Separator()
-        for (i in 0..5) {
-           Vacancy()
-        }
+            for (i in 0..5) {
+                Vacancy(navController)
+            }
         Column(Modifier.fillMaxSize()) {
             Separator()
-            New_post()
+            New_post(navController)
         }
 
 }}

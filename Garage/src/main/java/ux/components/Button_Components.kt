@@ -47,12 +47,12 @@ fun Authorize(
 }
 
 @Composable
-fun New_post(){
+fun New_post(navController: NavHostController) {
     Column(Modifier.fillMaxSize()){
         Button(modifier = Modifier
             .background(Color.Black)
             .padding(20.dp)
-            .fillMaxSize(), onClick = { /*TODO*/ }) {Text(text="Ready to publish your idea?!?",color=Color.White)}
+            .fillMaxSize(), onClick = { navController.navigate("newpost") }) {Text(text="Ready to publish your idea?!?",color=Color.White)}
 }
 
 }

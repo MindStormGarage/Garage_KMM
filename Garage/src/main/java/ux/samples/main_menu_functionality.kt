@@ -1,6 +1,7 @@
 package ux.samples
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -30,14 +31,14 @@ import ux.components.icons
 import ux.components.menu_func
 
 @Composable
-fun Vacancy(){
+fun Vacancy(navController: NavHostController) {
     Card(
-        backgroundColor = Color.White, modifier = Modifier
+        backgroundColor = Color.Black, modifier = Modifier
             .padding(10.dp)
             .height(80.dp)
             .fillMaxWidth()
     ) {
-        Column(Modifier.fillMaxSize()) {
+        Column(Modifier.fillMaxSize().clickable { navController.navigate("readpost") }) {
             Text(modifier = Modifier.align(Alignment.CenterHorizontally), text = "Project Name")
             Text(modifier = Modifier.align(Alignment.CenterHorizontally), text = "1999$")
             Text(modifier = Modifier.align(Alignment.CenterHorizontally), text = "Briefly descripted")
