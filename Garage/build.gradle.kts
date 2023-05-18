@@ -38,8 +38,13 @@ android {
     }
 }
 
+
 dependencies {
     implementation(project(":shared"))
+    implementation ("com.google.accompanist:accompanist-pager:0.20.0")
+    implementation ("com.google.accompanist:accompanist-swiperefresh:0.20.0")
+    implementation ("com.google.accompanist:accompanist-navigation-animation:0.20.0")
+    // Add any other Accompanist libraries you need
     implementation ("androidx.navigation:navigation-compose:2.5.3")
     implementation ("androidx.compose.material:material-icons-extended:1.4.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")

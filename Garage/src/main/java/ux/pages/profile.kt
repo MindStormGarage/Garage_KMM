@@ -15,6 +15,7 @@ import androidx.navigation.NavHostController
 import ux.components.Separator
 import ux.samples.Bio
 import ux.samples.avatar
+import ux.samples.projects
 import ux.samples.topbar
 
 @Composable
@@ -28,7 +29,7 @@ fun profile_screen(navController: NavHostController) {
         Bio()
         Separator()
         Text(text = "Project", textAlign = TextAlign.Center,color=Color.White, modifier = Modifier.fillMaxWidth())
-        Box(modifier = Modifier.fillMaxSize().background(Color.White))
+        projects()
     }
 
 }
