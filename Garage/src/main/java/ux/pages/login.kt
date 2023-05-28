@@ -11,20 +11,24 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.cartel.garage.SPUsage
+import com.cartel.garage.SharedPreferencesManagerImpl
 import ux.components.Authorize
 import ux.components.Pass
-import ux.components.Separator
 import ux.components.field_input
 import ux.components.surface_label
 
 @Composable
 fun auth_screen(navController: NavHostController) {
+    val sharedPreferencesManager = SharedPreferencesManagerImpl(context = LocalContext.current)
+    val sp = SPUsage(sharedPreferencesManager)
     val login= remember{
-        mutableStateOf("")}
+        mutableStateOf(sp.get_login()?:"None")}
     val password= remember {
-        mutableStateOf("")
+        mutableStateOf(sp.get_password()?:"None")
     }
     val Txt= remember {
         mutableStateOf("Welcome to Garage!")
@@ -41,7 +45,7 @@ fun auth_screen(navController: NavHostController) {
         Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
             field_input(login,"Login","example@mail.uk")
             Pass(password)
-            Authorize(login = login, password = password , Edit =Txt, navController)
+            Authorize(login = login, password = password , resp =Txt, navController = navController,sp)
         }
         }
 }

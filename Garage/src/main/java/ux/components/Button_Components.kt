@@ -18,33 +18,55 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.cartel.garage.SPUsage
+import com.cartel.garage.SharedPreferencesManagerImpl
+import com.cartel.garage.functionality.Get_Post_Querry
+import kotlinx.coroutines.launch
 
 @Composable
 fun Authorize(
     login: MutableState<String>,
     password: MutableState<String>,
-    Edit: MutableState<String>,
-    navController: NavHostController
-){
-    val sing_in={
-        navController.navigate("head")
+    resp:MutableState<String>,
+    navController: NavHostController,
+    spUsage: SPUsage
+) {
+    val scope = rememberCoroutineScope()
+    val signUp: () -> Unit = {
+        scope.launch {
+             Get_Post_Querry().sign_up(login.value, password.value,"softymodel@gmail.com") { serverResponse ->
+                 if (serverResponse.toInt()==200){
+                     spUsage.set_login(login.value)
+                     spUsage.set_password(password.value)
+                     navController.navigate("head")
+                 }
+            }
+        }
     }
-    val sing_up={
-        /*Todo*/
+    val signIn: () -> Unit = {
+        /* Todo: Implement the sign-up functionality */
     }
-    TextButton(onClick = sing_in) {
-        Text(text = "Sing-in")
-    }
-    TextButton(onClick =sing_up) {
-        Text(text = "Sing-up")
+
+    Column {
+        Button(onClick = signIn) {
+            Text(text = "Sign-in")
+        }
+        Button(onClick = signUp) {
+            Text(text = "Sign-up")
+        }
     }
 }
+
+
+
 
 @Composable
 fun New_post(navController: NavHostController) {
